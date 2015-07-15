@@ -25,12 +25,14 @@ and what you should write is the favNum function that makes the code above work,
 
 
   //Code Here for first
-  
+var first = function(arr, fn) {
+  fn(arr[0]);
+}
+
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
   console.log('The first name in names is ', firstName)
 });
-
 
 
 /* NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM ---- NEXT PROBLEM */
@@ -39,6 +41,9 @@ first(names, function(firstName){
 
 
   //Code Here for last
+var last = function(arr, cb) {
+  cb(arr[arr.length -1]);
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 last(names, function(lastName){
@@ -57,6 +62,9 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+var multiply = function(num1, num2, cb) {
+  cb(num1 * num2);
+}
 
 multiply(4, 3, function(answer){
   console.log('The answer is ', answer); //should console.log 12
@@ -73,6 +81,13 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+var contains = function(arr, toCheck, cb) {
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] === toCheck) {
+      cb(true);
+    }
+  }
+}
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 contains(names, 'Colt', function(result){
@@ -93,7 +108,15 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
-
+var uniq = function(arr, cb) {
+  var newArray = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (newArray.indexOf(arr[i]) === -1) {
+      newArray.push(arr[i]);
+    }
+  }
+  cb(newArray);
+}
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
