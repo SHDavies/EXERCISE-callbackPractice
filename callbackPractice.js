@@ -86,6 +86,9 @@ var contains = function(arr, toCheck, cb) {
     if (arr[i] === toCheck) {
       cb(true);
     }
+    else if (i === arr.length - 1) {
+      cb(false);
+    }
   }
 }
 
