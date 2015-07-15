@@ -149,7 +149,13 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
-
+var getUserById = function(list, wantedUser, cb) {
+  for (var person in list) {
+    if (list[person].id === wantedUser) {
+      cb(list[person]);
+    }
+  }
+};
 var users = [
   {
     id: '12d',
